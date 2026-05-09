@@ -12,6 +12,7 @@ CrispHMM: a Multivariate Heterogeneous HMM to Learn Parameters of CRISPR sgRNA P
 | `preliminary.ipynb` | Preliminary analysis: downloads the ENCODE AWG ChromHMM segmentation for HeLa S3, intersects it with sgRNA efficiency data, runs OLS regression of chromatin state categories and proportion-active-chromatin against normalized efficiency, and computes sequence features (GC content, Hamming distances). Produces the R² = 0.006 result reported in Section 2.1 of the paper. |
 | `training_model.ipynb` | Main model: defines and trains the CrispHMM HMM with mixed Bernoulli/Beta emissions and masked efficiency supervision using Pyro's Trace-ELBO |
 | `viterbi_and_visualizations.ipynb` | Inference and evaluation: loads trained parameters, runs the Viterbi algorithm on held-out chromosomes, computes efficiency predictions, and generates all figures (emission/transition heatmaps, feature weight heatmap, loss curve) |
+| `sgrna_features_hela.csv` | Pre-computed sgRNA features for HeLa: chromosomal coordinates, normalized efficiency, GC content, minimum free energy, and melting temperature for 8,101 guides. Direct input to `merge_features.ipynb`. |
 | `sample_input/HeLa_chr21_merged.csv` | Sample input: merged ChIP-seq marks and sgRNA features for chr21 (smallest chromosome, 240,649 bins, 100 sgRNA sites) |
 | `sample_output/trained_params_dl.pkl` | Sample output: trained model parameters from the 2000-step checkpoint, loadable directly into `viterbi_and_visualizations.ipynb` |
 
@@ -26,6 +27,7 @@ CrispHMM/
 ├── preliminary.ipynb
 ├── training_model.ipynb
 ├── viterbi_and_visualizations.ipynb
+├── sgrna_features_hela.csv
 ├── sample_input/
 │   └── HeLa_chr21_merged.csv
 └── sample_output/
